@@ -1,0 +1,77 @@
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1920px) {
+}
+@media only screen and (max-width : 1200px) {
+}
+
+@media only screen and (max-width : 1024px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 800px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 600px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+}
+@media only screen and (max-width : 640px) {
+.form-signin{padding:40px 20px 0;}
+.menu-right{float:right;margin:-50px 0 0;}
+body{padding-bottom:100px;}
+.user-pic { width: 100px;height: 100px;overflow: hidden;border: solid 8px #fff;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%; margin: 0 auto;position: absolute; left: 40%;top:10px;}
+.card-container{width:100%;margin:30px 0;position:static;transform:translate(0)}
+.card{padding-top:70px;}
+.navbar-brand img{width:100%;}
+
+}
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+.form-signin{padding:40px 20px 0;}
+.menu-right{float:right;margin:-50px 0 0;}
+body{padding-bottom:100px;}
+.user-pic { width: 100px;height: 100px;overflow: hidden;border: solid 8px #fff;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%; margin: 0 auto;position: absolute; left: 40%;top:10px;}
+.card-container{width:100%;margin:30px 0;position:static;transform:translate(0)}
+.card{padding-top:70px;}
+.navbar-brand img{width:100%;}
+
+}
+
+@media only screen and (max-width : 360px) {
+body{padding-bottom:100px;}
+.form-signin{padding:40px 20px 0;}
+.menu-right{float:right;margin:-50px 0 0;}
+.project-Act-det li {display: table;}	
+.proj-act-Right {display: table-cell; float:none;vertical-align: middle;}
+.proj-act-Left {float:none;height: auto;margin-top: 4px;padding-top: 15px;display: table-cell;width:85px;}
+.user-pic { width: 100px;    height: 100px;    overflow: hidden;    border: solid 8px #fff;    -moz-border-radius: 50%;    -webkit-border-radius: 50%;    border-radius: 50%;    margin: 0 auto;    position: absolute;    left: 40%;    top: -50px;}
+.card-container{width:100%;margin:30px 0;}
+.card{padding-top:70px;}
+.navbar-brand img{width:100%;}
+
+}
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+.form-signin{padding:40px 20px 0;}
+.menu-right{float:right;margin:-50px 0 0;}
+body{padding-bottom:100px;}
+.project-Act-det li {display: table;}	
+.proj-act-Right {display: table-cell; float:none;vertical-align: middle;}
+.proj-act-Left {float:none; height: auto; margin-top: 4px; padding-top: 15px; display: table-cell;width:85px;}
+.user-pic { width: 100px;height: 100px;overflow: hidden;border: solid 8px #fff;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%; margin: 0 auto;position: absolute; left: 36%;top:10px;}
+.forgot-password {padding: 0px;font-size: 14px;-moz-border-radius: 0 0 3px 3px;-webkit-border-radius: 0 0 3px 3px; border-radius: 0 0 3px 3px;border: none;padding: 0 20px 30px 20px;}
+.card-container{width:100%;margin:30px 0;position:static;transform:translate(0)}
+.card{padding-top:70px;}
+.navbar-brand img{width:100%;}
+}

@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<html>
+<title>Global Vencer</title>
+ <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="Css/bootstrap-select.css">
+<link rel="stylesheet" href="Css/bootstrap-select.min.css">
+<link rel="stylesheet" href="Css/w3.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<style>
+@import "compass/css3";
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('images/a1.jpg');
+    min-height: 20%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+    background-image: url("images/a2.jpg");
+    min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("images/a3.jpg");
+    min-height: 400px;
+}
+
+.gv-wide {letter-spacing: 10px;}
+.gv-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
+</style>
+<style>
+.mySlides {
+  display:none;
+  margin-top: 43px;
+  width: 100%;
+}
+.gv-left, .gv-right, .gv-badge {cursor:pointer}
+.gv-badge {height:13px;width:13px;padding:0}
+
+#home
+{
+  margin-top: -250px;
+}
+#about
+{
+  margin-top: 300px;
+}
+
+.scrollToTop > i {
+  font-size: 39px;
+  position: absolute;
+  bottom: 2%;
+  margin-left: -35px;
+  color: red;
+  -webkit-animation: bounce 2s infinite;
+     -moz-animation: bounce 2s infinite;
+          animation: bounce 2s infinite;
+}
+@keyframes bounce{
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-20px);
+  }
+  60% {
+    -webkit-transform: translateY(-5px);
+  }
+}
+@-moz-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-20px);
+  }
+  60% {
+    -moz-transform: translateY(-5px);
+  }
+}
+
+.scrollToTop{
+    height:95px;
+    padding:0px;
+    text-align:left;
+    background: whiteSmoke;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none !important;
+    position:fixed;
+    bottom:20px;
+    right:11px;
+    display:none;
+    background: url(images/arrow-up.png) no-repeat center 20px;
+}
+.scrollToTop:hover{
+    text-decoration:none;
+
+} 
+.scrollToTop {
+  @include animation(bounce 2s infinite);
+}
+
+.holder{        
+    width:100%;
+    display:block;
+}
+.popup{
+    width:200px;
+    border-radius: 7px;
+    background:#6b6a63;
+    margin:30px auto 0;
+    padding:6px;
+    position:relative;
+    left: 90%;
+    top: 80%;
+    margin-left: -100px;
+    margin-top: -50px; /* This should be half of the total height of your div */
+}
+
+.content{
+    background:#fff;
+    padding: 28px 26px 33px 25px;
+}
+
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="gv-top">
+  <div class="gv-bar" id="myNavbar">
+    <a class="gv-bar-item gv-button gv-hover-black gv-hide-medium gv-hide-large gv-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+    <i class="fa fa-bars"></i></a>
+    <a href="#contact" class="gv-bar-item gv-button gv-right gv-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="#portfolio" class="gv-bar-item gv-button  gv-right gv-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+    <a href="#about" class="gv-bar-item gv-button gv-right gv-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+    <a href="#home" class="gv-bar-item gv-right gv-button">HOME</a>
+    <a href="#" class="gv-bar-item gv-button gv-hide-small gv-left gv-hover-red">
+    <i class="fa fa-search"></i></a> 
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="gv-bar-block gv-white gv-hide gv-hide-large gv-hide-medium">
+    <a href="#about" class="gv-bar-item gv-button" onclick="toggleFunction()">ABOUT</a>
+    <a href="#portfolio" class="gv-bar-item gv-button" onclick="toggleFunction()">PORTFOLIO</a>
+    <a href="#contact" class="gv-bar-item gv-button" onclick="toggleFunction()">CONTACT</a>
+    <a href="#" class="gv-bar-item gv-button">SEARCH</a>
+  </div>
+</div>
+
+<div class="gv-content gv-display-container" style="max-width:100%;">
+  <img class="mySlides" src="images/a1.jpg" style="width:100%">
+  <img class="mySlides" src="images/a2.jpg" style="width:100%">
+  <img class="mySlides" src="images/a3.jpg" style="width:100%">
+  <div class="gv-center gv-container gv-section gv-large gv-text-white gv-display-bottommiddle" style="width:100%">
+    <div class="gv-left gv-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+    <div class="gv-right gv-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    <span class="gv-badge demo gv-border gv-transparent gv-hover-white" onclick="currentDiv(1)"></span>
+    <span class="gv-badge demo gv-border gv-transparent gv-hover-white" onclick="currentDiv(2)"></span>
+    <span class="gv-badge demo gv-border gv-transparent gv-hover-white" onclick="currentDiv(3)"></span>
+  </div>
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+ <div class="gv-display-container gv-opacity-min" id="home">
+  <div class="gv-display-middle" style="white-space:nowrap;">
+    <span class="gv-center gv-padding-xlarge gv-black gv-xlarge gv-wide gv-animate-opacity"><span class="gv-hide-small">GLOBAL</span> VENCER</span>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="gv-content gv-container gv-padding-64" id="about">
+  <h3 class="gv-center">ABOUT ME</h3>
+  <p class="gv-center"><em>I love photography</em></p>
+  <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+    qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <div class="gv-row">
+    <div class="gv-col m6 gv-center gv-padding-large">
+      <p><b><i class="fa fa-user gv-margin-right"></i>My Name</b></p><br>
+      <img src="/gvimages/avatar_hat.jpg" class="gv-round gv-image gv-opacity gv-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+    </div>
+
+    <!-- Hide this text on small devices -->
+    <div class="gv-col m6 gv-hide-small gv-padding-large">
+      <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+  <p class="gv-large gv-center gv-padding-16">Im really good at:</p>
+  <p class="gv-wide"><i class="fa fa-camera"></i>Photography</p>
+  <div class="gv-light-grey">
+    <div class="gv-container gv-padding-small gv-dark-grey gv-center" style="width:90%">90%</div>
+  </div>
+  <p class="gv-wide"><i class="fa fa-laptop"></i>Web Design</p>
+  <div class="gv-light-grey">
+    <div class="gv-container gv-padding-small gv-dark-grey gv-center" style="width:85%">85%</div>
+  </div>
+  <p class="gv-wide"><i class="fa fa-photo"></i>Photoshop</p>
+  <div class="gv-light-grey">
+    <div class="gv-container gv-padding-small gv-dark-grey gv-center" style="width:75%">75%</div>
+  </div>
+</div>
+
+<div class="gv-row gv-center gv-dark-grey gv-padding-16">
+  <div class="gv-quarter gv-section">
+    <span class="gv-xlarge">14+</span><br>
+    Partners
+  </div>
+  <div class="gv-quarter gv-section">
+    <span class="gv-xlarge">55+</span><br>
+    Projects Done
+  </div>
+  <div class="gv-quarter gv-section">
+    <span class="gv-xlarge">89+</span><br>
+    Happy Clients
+  </div>
+  <div class="gv-quarter gv-section">
+    <span class="gv-xlarge">150+</span><br>
+    Meetings
+  </div>
+</div>
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 gv-display-container gv-opacity-min">
+  <div class="gv-display-middle">
+    <span class="gv-xxlarge gv-text-light-grey gv-wide">PORTFOLIO</span>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div class="gv-content gv-container gv-padding-64" id="portfolio">
+  <h3 class="gv-center">MY WORK</h3>
+  <p class="gv-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to make them bigger</em></p><br>
+
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div class="gv-row-padding gv-center">
+    <div class="gv-col m3">
+      <img src="images/xxx.jpg" style="width:100%" onclick="onClick(this)" class="gv-hover-opacity" alt="The mist over the mountains">
+    </div>
+
+    <div class="gv-col m3">
+      <img src="images/p2.jpg" style="width:100%" onclick="onClick(this)" class="gv-hover-opacity" alt="Coffee beans">
+    </div>
+
+    <div class="gv-col m3">
+      <img src="images/p3.jpg" style="width:100%" onclick="onClick(this)" class="gv-hover-opacity" alt="Bear closeup">
+    </div>
+
+    <div class="gv-col m3">
+      <img src="images/p4.jpg" style="width:100%" onclick="onClick(this)" class="gv-hover-opacity" alt="Quiet ocean">
+    </div>
+  </div>
+
+  <div class="gv-row-padding gv-center gv-section">
+    <div class="gv-col m3">
+      <img src="images/p5.jpg" style="width:100%" onclick="onClick(this)" class="gv-hover-opacity" alt="The mist">
+    </div>
+
+    <div class="gv-col m3">
+      <img src="images/p6.jpg" style="width:100%" onclick="onClick(this)" class="gv-hover-opacity" alt="My beloved typewriter">
+    </div>
+
+    <div class="gv-col m3">
+      <img src="images/p7.jpg" style="width:100%" onclick="onClick(this)" class="gv-hover-opacity" alt="Empty ghost train">
+    </div>
+
+    <div class="gv-col m3">
+      <img src="images/p8.jpg" style="width:100%" onclick="onClick(this)" class="gv-hover-opacity" alt="Sailing">
+    </div>
+    <button class="gv-button gv-padding-xlarge" style="margin-top:64px">LOAD MORE</button>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="gv-modal gv-black" onclick="this.style.display='none'">
+  <span class="gv-button gv-large gv-black gv-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="gv-modal-content gv-animate-zoom gv-center gv-transparent gv-padding-64">
+    <img id="img01" class="gv-image">
+    <p id="caption" class="gv-opacity gv-large"></p>
+  </div>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 gv-display-container gv-opacity-min">
+  <div class="gv-display-middle">
+     <span class="gv-xxlarge gv-text-light-grey gv-wide">CONTACT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="gv-content gv-container gv-padding-64" id="contact">
+  <h3 class="gv-center">WHERE I WORK</h3>
+  <p class="gv-center"><em>I'd love your feedback!</em></p>
+
+  <div class="gv-row gv-padding-32 gv-section">
+    <div class="gv-col m4 gv-container">
+      <!-- Add Google Maps -->
+      <div id="googleMap" class="gv-round-large gv-greyscale" style="width:100%;height:400px;"></div>
+    </div>
+    <div class="gv-col m8 gv-panel">
+      <div class="gv-large gv-margin-bottom">
+        <i class="fa fa-map-marker fa-fw gv-hover-text-black gv-xlarge gv-margin-right"></i> Bangalore, India<br>
+        <i class="fa fa-phone fa-fw gv-hover-text-black gv-xlarge gv-margin-right"></i> Phone: +91-9964007699<br>
+        <i class="fa fa-envelope fa-fw gv-hover-text-black gv-xlarge gv-margin-right"></i> Email: globalvencer@gmail.com<br>
+      </div>
+      <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
+      <form >
+        <div class="gv-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="gv-half">
+            <input class="gv-input gv-border" type="text" placeholder="Name" id='name' name="Name">
+          </div>
+          <div class="gv-half">
+            <input class="gv-input gv-border" type="text" placeholder="Email" id='email' name="Email">
+          </div>
+        </div>
+        <textarea class= "gv-border" name="message" id="message" rows="10" cols="56" placeholder="Message"></textarea>
+        <button id='sendmail' class="gv-button gv-black gv-right gv-section" type="button">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="gv-center gv-black gv-padding-64 gv-opacity gv-hover-opacity-off">
+  <a href="#" class="scrollToTop"><i class="fa fa-chevron-up"></i></a>
+   <div class="gv-xlarge gv-section">
+    <i class="fa fa-facebook-official gv-hover-text-indigo"></i>
+    <i class="fa fa-instagram gv-hover-text-purple"></i>
+    <i class="fa fa-snapchat gv-hover-text-yellow"></i>
+    <i class="fa fa-pinterest-p gv-hover-text-red"></i>
+    <i class="fa fa-twitter gv-hover-text-light-blue"></i>
+    <i class="fa fa-linkedin gv-hover-text-indigo"></i>
+  </div>
+  
+  <p>Powered by <a href="https://www.gvschools.com/gvcss/default.asp" title="gv.CSS" target="_blank" class="gv-hover-text-green">gv.css</a></p>
+</footer>
+
+ <div class="arrow bounce">
+
+</div>
+<!-- Add Google Maps -->
+<script>
+$(document).ready(function(){
+   $(window).scroll(function(){
+    if ($(this).scrollTop() > 100) {
+      $('.scrollToTop').fadeIn();
+    } else {
+      $('.scrollToTop').fadeOut(10);
+    }
+  });
+  $('.scrollToTop').click(function(){
+    $('html, body').animate({scrollTop : 0},800);
+    return false;
+  });
+});
+
+
+
+function myMap()
+{
+  myCenter=new google.maps.LatLng(12.971599, 77.594563);
+  var mapOptions= {
+    center:myCenter,
+    zoom:12, scrollwheel: false, draggable: false,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: myCenter,
+  });
+  marker.setMap(map);
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 15 || document.documentElement.scrollTop > 15) {
+        navbar.className = "gv-bar" + " gv-card-2" + " gv-animate-top" + " gv-white";
+    } else {
+        navbar.className = navbar.className.replace(" gv-card-2 gv-animate-top gv-white", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("gv-show") == -1) {
+        x.className += " gv-show";
+    } else {
+        x.className = x.className.replace(" gv-show", "");
+    }
+}
+
+/*var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+}*/
+
+
+var slideIndexq = 1;
+showDivs(slideIndexq);
+
+function plusDivs(n) {
+  showDivs(slideIndexq += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndexq = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndexq = 1}    
+  if (n < 1) {slideIndexq = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" gv-white", "");
+  }
+  x[slideIndexq-1].style.display = "block";  
+  dots[slideIndexq-1].className += " gv-white";
+}
+
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuIn7C6ufzEGQay4816WgyoGPGuifjZ8o&callback=myMap"
+  type="text/javascript"></script>
+</body>
+</html>
